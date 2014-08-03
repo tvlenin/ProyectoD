@@ -4,36 +4,65 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
 public class CustomPanel extends JPanel implements KeyListener{
     Thread hilos ;
+    enemigo Ene;
     private int naveposx = 100;
     private int posx = 0;
     private int a = 110;
     private int b = 110;
-    private int disparar = 1;
+    private int c = 1;
+    private int cantEnem = 2;
     
     private URL url = getClass().getResource("/img/mario.jpg");
     Image image = new ImageIcon(url).getImage();
     
     nave naves = new nave();
-    enemigo enemigo1 = new enemigo(700,40);
+    
+    ArrayList <enemigo> enemigos = new ArrayList<enemigo> ();
+       
     
     // metodo constructor agrega el keyListener, lo vuelve visible, y le agrega un tipo de layout
     public CustomPanel(){
         //addMouseListener(this);
         addKeyListener(this);
         setFocusable(true);
+        prueba();
         setOpaque(false);
         setLayout(null);
         add(naves);
-        add(enemigo1);
-        enemigo1.start();
+        
+        
+    }
+    public void prueba(){
+        for (int i = 1; i <= cantEnem; i++ ){
+            if (i == 1){
+            a += 20;
+            b += 20;
+            c = 1;
+            }else if (i == 2){
+            a += 100;
+            b += 20;
+            c = 2;
+            }
+            enemigo Ene = new enemigo(a,b,c);
+            enemigos.add(Ene);
+            Ene.start();
+            this.add(Ene);        
+        
+        
+        }
+        
+        
+        
+        
+        
     }
     
 
@@ -43,17 +72,11 @@ public class CustomPanel extends JPanel implements KeyListener{
         
         g.drawImage(image, posx, 0,image.getWidth(this), image.getHeight(this), this);
         
-        g.drawRect(a, b, 10, 10);
-        
         super.paint(g);
         
     }
     
     
-
-    
-    
-     
     
     
     
@@ -94,25 +117,9 @@ public class CustomPanel extends JPanel implements KeyListener{
     
     
     
+   
     
-    
-    
-    //metodo para mover la pantalla hacia la izquierda
-    public void adelante(){
-        this.posx -= 40;
-        
-        //repaint();
-    }
-    //metodo para mover la pantalla hacia la derecha
-    public void atras(){
-        this.posx += 40;
-        //repaint();
-    }
-    
-    //metodo para obtener la posicion x
-   public int getFondox(){
-       return posx;
-   }
+   
     
     // Metodos abstractos de la interface KeyListener
     @Override
@@ -153,17 +160,28 @@ public class CustomPanel extends JPanel implements KeyListener{
                 System.out.println("Error en y");
         }
         if (c == KeyEvent.VK_RIGHT) {
-            enemigo1.atras();
+           Iterator<enemigo> ator = enemigos.iterator();
+           while(ator.hasNext()){
+           enemigo ene = ator.next();
+           ene.atras();
+        }
+                
+         
         }
         if (c == KeyEvent.VK_LEFT) {
-            enemigo1.adelante();
+            Iterator<enemigo> ator = enemigos.iterator();
+            while(ator.hasNext()){
+            enemigo ene = ator.next();
+            ene.adelante();
         }
                 
     }
-
+    }
     @Override
     public void keyReleased(KeyEvent e) {    
     }
-
-    
 }
+    
+
+
+   
