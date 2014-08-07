@@ -41,10 +41,7 @@ public class nave extends JLabel implements Runnable{
         return posx;
     }
     
-    public void setPosx(int x){
-        posx = x;
-    
-    }
+  
     
    
     // metodo para mover la nave hacia arriba

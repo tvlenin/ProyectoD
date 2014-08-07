@@ -77,6 +77,16 @@ public class CustomPanel extends JPanel implements KeyListener{
     }
     
     
+    public void FondoAdelante(){
+        this.posx -= 2;
+    
+    }
+    public void FondoAtras(){
+        this.posx += 2;
+    
+    }
+    
+    
     
     
     
@@ -165,6 +175,8 @@ public class CustomPanel extends JPanel implements KeyListener{
            enemigo ene = ator.next();
            ene.atras();
         }
+           FondoAdelante();
+           repaint();
                 
          
         }
@@ -174,6 +186,8 @@ public class CustomPanel extends JPanel implements KeyListener{
             enemigo ene = ator.next();
             ene.adelante();
         }
+           FondoAtras();
+           repaint();
                 
     }
     }

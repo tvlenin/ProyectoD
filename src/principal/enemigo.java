@@ -19,7 +19,10 @@ public class enemigo extends JLabel implements Runnable{
     private int mov = 0;
     private int movi = 1;
     private int cont = 0;
-    
+    /**
+     * Metodo constructor de la clase enemigo
+     * 
+     */
     public enemigo (int x,int y, int movi){
         this.posx = x;
         this.posy = y;
@@ -84,12 +87,43 @@ public class enemigo extends JLabel implements Runnable{
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
 
     }
-    //metodo para alejarse de la nave
+    /**
+     * metodo para alejarse de la nave
+     */    
     public void adelante(){
         posx += 5;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
 
+      
     }
+    /**
+     * Metodo que retorna un entero con la posicion del enemigo en x
+     */  
+    public int getposx(){
+        return posx;
+    }
+     /**
+     * Metodo que retorna un entero con la posicion del enemigo en y
+     */  
+    public int getposy(){
+        return posy;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /** 
+     * Metodo que inicia el hilo de la clase enemigo
+     */
     public void start(){
         if(hilo==null){
             hilo=new Thread(this);
