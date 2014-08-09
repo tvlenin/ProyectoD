@@ -28,7 +28,9 @@ public class CustomPanel extends JPanel implements KeyListener{
     ArrayList <enemigo> enemigos = new ArrayList<enemigo> ();
        
     
-    // metodo constructor agrega el keyListener, lo vuelve visible, y le agrega un tipo de layout
+    /**
+     * metodo constructor agrega el keyListener, lo vuelve visible, y le agrega un tipo de layout
+     */
     public CustomPanel(){
         //addMouseListener(this);
         addKeyListener(this);
@@ -66,7 +68,9 @@ public class CustomPanel extends JPanel implements KeyListener{
     }
     
 
-    // metodo de pintar del JPanel
+    /**
+     * metodo de pintar del JPanel
+     */
     @Override
     public void paint(Graphics g){
         
@@ -76,12 +80,16 @@ public class CustomPanel extends JPanel implements KeyListener{
         
     }
     
-    
-    public void FondoAdelante(){
-        this.posx -= 2;
-    
-    }
+    /**
+     * metodo para mover el fondo hacia atras
+     */
     public void FondoAtras(){
+        this.posx -= 2;
+     /**
+     * metodo para mover el fondo hacia Adelante
+     */
+    }
+    public void FondoAdelante(){
         this.posx += 2;
     
     }
@@ -131,7 +139,9 @@ public class CustomPanel extends JPanel implements KeyListener{
     
    
     
-    // Metodos abstractos de la interface KeyListener
+    /**
+     * Metodos abstractos de la interface KeyListener
+     */
     @Override
     public void keyTyped(KeyEvent e) {
      
@@ -175,7 +185,7 @@ public class CustomPanel extends JPanel implements KeyListener{
            enemigo ene = ator.next();
            ene.atras();
         }
-           FondoAdelante();
+           FondoAtras();
            repaint();
                 
          
@@ -186,7 +196,7 @@ public class CustomPanel extends JPanel implements KeyListener{
             enemigo ene = ator.next();
             ene.adelante();
         }
-           FondoAtras();
+           FondoAdelante();
            repaint();
                 
     }

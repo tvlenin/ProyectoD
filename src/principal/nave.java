@@ -6,8 +6,12 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+/**
+ *  
+ * @author tvlenin
+ * La clase implementa la interface Runnable para manejar hilos
+ */
 
-// La clase implementa la interface Runnable para manejar hilos
 public class nave extends JLabel implements Runnable{
     Thread hilo;// crea e hilo
     public int mov = 0;
@@ -22,7 +26,9 @@ public class nave extends JLabel implements Runnable{
 
 
 
-// metodo constructor de la clase nave
+/**
+ * metodo constructor de la clase nave
+ */
     public nave(){
         //setOpaque(false);
         setVisible(true);
@@ -33,7 +39,9 @@ public class nave extends JLabel implements Runnable{
     
     
     
-    //metodo para obtener la posicion en x
+    /**
+     * metodo para obtener la posicion en x
+     */
     public int getPosy(){
         return posy;
     }
@@ -43,13 +51,19 @@ public class nave extends JLabel implements Runnable{
     
   
     
-   
-    // metodo para mover la nave hacia arriba
+    /**
+     * 
+     * metodo para mover la nave hacia arriba
+     */
+    
     public void arriba(){
         posy -= 15;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
         }
-    // metodo para mover la nave hacia abajo
+    /**
+     *metodo para mover la nave hacia abajo 
+     */
+    
     public void abajo(){
         posy += 10;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
@@ -62,23 +76,30 @@ public class nave extends JLabel implements Runnable{
     
     
     
+    /**
+     * Metodo para controlar los hilos, inicia el hilo
+     */
     
-    //Metodo para controlar los hilos, inicia el hilo
     public void start(){
-     if(hilo==null){
-        hilo=new Thread(this);
-        
-        hilo.start();
-     }
+        if(hilo==null){
+            hilo=new Thread(this);
+            hilo.start();
+        }
     }
-    //metodo para detener el hilo
+    /**
+    *metodo para detener el hilo
+    */
     public void stop(){
-     if(hilo!=null){
-        hilo.stop();
-        hilo=null;
-     }
-  }
-    // metodo donde se encuentran las instrucciones para repetir en el hilo
+        if(hilo!=null){
+            hilo.stop();
+            hilo=null;
+        }
+    }
+   
+    /**
+     * 
+     * metodo donde se encuentran las instrucciones para repetir en el hilo
+     */
     @Override
     public void run() {
         
