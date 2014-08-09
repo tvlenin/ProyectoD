@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 /**
  *
  * @author tvlenin
+ * Clase que para crear objetos de tipo enemigo
  */
 public class enemigo extends JLabel implements Runnable{
     private int posx = 0;
@@ -33,12 +34,13 @@ public class enemigo extends JLabel implements Runnable{
         this.movi = movi;
 }
 
-    
-    //metodo con las diferentes maneras en las que se puede mover el enemigo
+    /**
+     *metodo con las diferentes maneras en las que se puede mover el enemigo 
+     */
     public void mover(int o){
 
         switch (o){
-            // el caso 1 es un movimiento en cuadro 
+            
             case 1 :
                 if (cont <= 140){
                     posx += 4;
@@ -81,7 +83,9 @@ public class enemigo extends JLabel implements Runnable{
                 System.out.println("");
         }
     }  
-    //metodo para mover los objetos de la pantalla hacia la nave
+    /**
+     * metodo para mover los objetos de la pantalla hacia la nave
+    */
     public void atras(){
         posx -= 5;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
@@ -130,14 +134,18 @@ public class enemigo extends JLabel implements Runnable{
             hilo.start();
         }
     }
-    //metodo para detener el hilo
+    /**
+     *metodo para detener el hilo 
+     */
     public void stop(){
         if(hilo!=null){
             hilo.stop();
             hilo=null;
         }
     }
-    // metodo donde se encuentran las instrucciones para repetir en el hilo
+    /**
+     *metodo donde se encuentran las instrucciones para repetir en el hilo
+     */
     @Override
     public void run() {
         while (true) {

@@ -46,9 +46,9 @@ public class nave extends JLabel implements Runnable{
    
     // metodo para mover la nave hacia arriba
     public void arriba(){
-        posy -= 10;
+        posy -= 15;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
-    }
+        }
     // metodo para mover la nave hacia abajo
     public void abajo(){
         posy += 10;
