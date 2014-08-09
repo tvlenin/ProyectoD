@@ -26,9 +26,9 @@ public class nave extends JLabel implements Runnable{
 
 
 
-/**
- * metodo constructor de la clase nave
- */
+    /**
+     * metodo constructor de la clase nave
+     */
     public nave(){
         //setOpaque(false);
         setVisible(true);
@@ -43,10 +43,10 @@ public class nave extends JLabel implements Runnable{
      * metodo para obtener la posicion en x
      */
     public int getPosy(){
-        return posy;
+        return this.posy;
     }
     public int getPosx(){
-        return posx;
+        return this.posx;
     }
     
   
@@ -57,16 +57,16 @@ public class nave extends JLabel implements Runnable{
      */
     
     public void arriba(){
-        posy -= 15;
-        setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+        this.posy -= 15;
+        setBounds(this.posx,this.posy , this.icon.getIconWidth(), this.icon.getIconHeight());
         }
     /**
      *metodo para mover la nave hacia abajo 
      */
     
     public void abajo(){
-        posy += 10;
-        setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+        this.posy += 10;
+        setBounds(this.posx,this.posy , this.icon.getIconWidth(), this.icon.getIconHeight());
     }
     
     
@@ -113,18 +113,18 @@ public class nave extends JLabel implements Runnable{
             try{
                 // define el tiempo cada cuanto se baja una posicion 
                 Thread.sleep(10);
-                mov = 1;
+                this.mov = 1;
             
             }catch (InterruptedException e) { }
                 // baja la nave una posicion en y cada 30 milisegundos, definidos en el sleep de arriba
-            if (posy <= 415){
-                posy += 1;
+            if (this.posy <= 415){
+                this.posy += 1;
                 
                 
-                setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+                setBounds(this.posx,this.posy , this.icon.getIconWidth(), this.icon.getIconHeight());
             }
-            if (posy == 415)
-                mov = 0;   
+            if (this.posy == 415)
+                this.mov = 0;   
         }   
     }
 }

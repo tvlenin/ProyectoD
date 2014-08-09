@@ -3,13 +3,29 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+//
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
+import java.io.File;
 
 
+
+/**
+ * 
+ * 
+ * Clase para crear el fondo del juego y agregar los componentes
+ */
 public class CustomPanel extends JPanel implements KeyListener{
     Thread hilos ;
     enemigo Ene;
@@ -18,6 +34,8 @@ public class CustomPanel extends JPanel implements KeyListener{
     private int a = 110;
     private int b = 110;
     private int c = 1;
+    private String nombre;// = "OVNI.png";
+    
     private int cantEnem = 2;
     
     private URL url = getClass().getResource("/img/mario.jpg");
@@ -26,6 +44,9 @@ public class CustomPanel extends JPanel implements KeyListener{
     nave naves = new nave();
     
     ArrayList <enemigo> enemigos = new ArrayList<enemigo> ();
+    
+   
+    
        
     
     /**
@@ -33,28 +54,89 @@ public class CustomPanel extends JPanel implements KeyListener{
      */
     public CustomPanel(){
         //addMouseListener(this);
+       
         addKeyListener(this);
         setFocusable(true);
-        prueba();
+        //prueba();
+        LeerXml();
         setOpaque(false);
         setLayout(null);
         add(naves);
         
         
+        
     }
+    public void LeerXml(){
+        try {
+ 
+	File fXmlFile = new File("/home/tvlenin/NetBeansProjects/PruebaPanel/src/niveles/prueba.xml");
+	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	Document doc = dBuilder.parse(fXmlFile);
+ 
+	doc.getDocumentElement().normalize();
+ 
+        /*System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+        
+        
+        
+        System.out.println("----------------------------");*/
+        NodeList nList = doc.getElementsByTagName("staff");
+ 
+	for (int temp = 0; temp < nList.getLength(); temp++) {
+ 
+		Node nNode = nList.item(temp);
+ 
+		System.out.println("\nCurrent Element :" + nNode.getNodeName());
+ 
+		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+ 
+			Element eElement = (Element) nNode;
+ 
+			System.out.println("Staff id : " + eElement.getAttribute("id"));
+			System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
+			System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
+			System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
+			System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
+                        this.a = Integer.parseInt(eElement.getElementsByTagName("firstname").item(0).getTextContent());
+                        this.b = Integer.parseInt(eElement.getElementsByTagName("lastname").item(0).getTextContent());
+                        this.c = Integer.parseInt(eElement.getElementsByTagName("nickname").item(0).getTextContent());
+                        nombre = eElement.getElementsByTagName("salary").item(0).getTextContent();
+                        enemigo Ene = new enemigo(this.a,this.b,this.c,this.nombre);
+                        this.enemigos.add(Ene);
+                        Ene.start();
+                        this.add(Ene);
+		}
+	}
+    } catch (Exception e) {
+	e.printStackTrace();
+    }
+      
+            
+            
+      
+
+    }
+    
+    
+    
+    /**
+     * 
+     * Metodo de prueba
+     */
     public void prueba(){
         for (int i = 1; i <= cantEnem; i++ ){
             if (i == 1){
-            a += 20;
-            b += 20;
-            c = 1;
+            this.a += 20;
+            this.b += 20;
+            this.c = 1;
             }else if (i == 2){
-            a += 100;
-            b += 20;
-            c = 2;
+            this.a += 100;
+            this.b += 20;
+            this.c = 5;
             }
-            enemigo Ene = new enemigo(a,b,c);
-            enemigos.add(Ene);
+            //enemigo Ene = new enemigo(a,b,c);
+            this.enemigos.add(Ene);
             Ene.start();
             this.add(Ene);        
         
@@ -85,53 +167,15 @@ public class CustomPanel extends JPanel implements KeyListener{
      */
     public void FondoAtras(){
         this.posx -= 2;
-     /**
-     * metodo para mover el fondo hacia Adelante
-     */
+    
     }
+    /**
+    * metodo para mover el fondo hacia Adelante
+    */
     public void FondoAdelante(){
         this.posx += 2;
     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -203,7 +247,7 @@ public class CustomPanel extends JPanel implements KeyListener{
     }
     @Override
     public void keyReleased(KeyEvent e) {    
-    }
+    }  
 }
     
 
