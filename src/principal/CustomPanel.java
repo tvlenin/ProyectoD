@@ -54,6 +54,8 @@ public class CustomPanel extends JPanel implements KeyListener{
      */
     public CustomPanel(){
         //addMouseListener(this);
+        
+        
        
         addKeyListener(this);
         setFocusable(true);
@@ -76,28 +78,36 @@ public class CustomPanel extends JPanel implements KeyListener{
  
 	doc.getDocumentElement().normalize();
  
-        /*System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-        
-        
-        
-        System.out.println("----------------------------");*/
         NodeList nList = doc.getElementsByTagName("staff");
+        NodeList mapa = doc.getElementsByTagName("mapa");
+        //Para leer el mapa
+        for (int temp = 0; temp < mapa.getLength(); temp++) {
  
-	for (int temp = 0; temp < nList.getLength(); temp++) {
+		Node nNode = mapa.item(temp);
  
-		Node nNode = nList.item(temp);
- 
-		System.out.println("\nCurrent Element :" + nNode.getNodeName());
+		
  
 		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
  
 			Element eElement = (Element) nNode;
+                        System.out.println(eElement.getElementsByTagName("jo").item(0).getTextContent());
+                        this.url = getClass().getResource("/img/"+eElement.getElementsByTagName("jo").item(0).getTextContent());
+                        Image image = new ImageIcon(url).getImage();
+                        this.image = image;
+                        
+                                              
+		}
+	}
+        
  
-			System.out.println("Staff id : " + eElement.getAttribute("id"));
-			System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
-			System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
-			System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
-			System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
+        //Para leer a los enemigos
+	for (int temp = 0; temp < nList.getLength(); temp++) {
+ 
+		Node nNode = nList.item(temp);
+ 
+		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+ 
+			Element eElement = (Element) nNode;
                         this.a = Integer.parseInt(eElement.getElementsByTagName("firstname").item(0).getTextContent());
                         this.b = Integer.parseInt(eElement.getElementsByTagName("lastname").item(0).getTextContent());
                         this.c = Integer.parseInt(eElement.getElementsByTagName("nickname").item(0).getTextContent());
@@ -117,38 +127,7 @@ public class CustomPanel extends JPanel implements KeyListener{
       
 
     }
-    
-    
-    
-    /**
-     * 
-     * Metodo de prueba
-     */
-    public void prueba(){
-        for (int i = 1; i <= cantEnem; i++ ){
-            if (i == 1){
-            this.a += 20;
-            this.b += 20;
-            this.c = 1;
-            }else if (i == 2){
-            this.a += 100;
-            this.b += 20;
-            this.c = 5;
-            }
-            //enemigo Ene = new enemigo(a,b,c);
-            this.enemigos.add(Ene);
-            Ene.start();
-            this.add(Ene);        
-        
-        
-        }
-        
-        
-        
-        
-        
-    }
-    
+      
 
     /**
      * metodo de pintar del JPanel

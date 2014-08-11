@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <company>
+        <mapa >
+		<jo>mario.jpg</jo>
+	</mapa>
+        
 	<staff id="1001">
 		<firstname>110</firstname>
 		<lastname>70</lastname>
@@ -13,6 +17,7 @@
 		<salary>OVNI.png</salary>
 	</staff>
         <staff id="2002">
+                <jo>0</jo>
 		<firstname>150</firstname>
 		<lastname>200</lastname>
 		<nickname>3</nickname>
