@@ -3,6 +3,7 @@
 package principal;
 
 import java.net.URL;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -20,11 +21,14 @@ public class enemigo extends JLabel implements Runnable{
     private int mov = 0;
     private int movi = 1;
     private int cont = 0;
+    Random rnd = new Random();
     /**
      * Metodo constructor de la clase enemigo
      * 
      */
-    public enemigo (int x,int y, int movi){
+    public enemigo (int x,int y, int movi, String nombre){
+        this.url = getClass().getResource("/img/"+nombre);
+        ImageIcon icon = new ImageIcon(url);
         this.posx = x;
         this.posy = y;
         setVisible(true);
@@ -46,25 +50,33 @@ public class enemigo extends JLabel implements Runnable{
                     posx += 4;
                     cont += 2;
                     setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
-                }else if (cont > 140 && cont <= 280){
-                    posy += 4;
-                    cont += 2;
-                    setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+                }else if (cont > 140 && cont <= 280 ){
+                    if (posy >= 450){
+                        cont = 281;
+                    }else{
+                        posy += 4;
+                        cont += 2;
+                        setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+                    }
                 }else if (cont > 280 && cont <= 420){
                     posx -= 4;
                     cont += 2;
                     setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
-                }else if (cont > 420 && cont <= 560){
-                    posy -= 4;
-                    cont += 2;
-                    setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+                }else if (cont > 420 && cont <= 560 && posy >= 0){
+                    if (posy <= 20){
+                        cont = 561;
+                    }else{
+                        posy -= 4;
+                        cont += 2;
+                        setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+                    }
                 }else
                     cont = 0;
 
 
                 break;
                 //caso 2 es un movimiento de arriba-abajo con una pequena inclinacion hacia x
-             case 2 :
+            case 2 :
                 if (posy >= 40  && mov == 0){
                     posx += 1;
                     posy -= 10;
@@ -79,8 +91,27 @@ public class enemigo extends JLabel implements Runnable{
                         mov =0;
                 }
                 break;
+            case 3 :
+                if (posy < 350){
+                    posy = 430;
+                }else if (posy >350 ){
+
+                    if (cont < 200){
+                        posx += 2;
+                        cont += 2;
+                        setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+                    }else if (cont >= 200 && cont < 500){
+                        cont += 2;
+                        posx -= 2;
+                        setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
+                    }else
+                        cont = 0;
+                }
+                break;
+                
+              
             default :
-                System.out.println("");
+                
         }
     }  
     /**
