@@ -43,7 +43,12 @@ public class CustomPanel extends JPanel implements KeyListener{
     
     nave naves = new nave();
     
+    balas bull = new balas(naves.getPosx(),naves.getPosy());
+
+    
     ArrayList <enemigo> enemigos = new ArrayList<enemigo> ();
+    
+    
     
    
     
@@ -67,11 +72,13 @@ public class CustomPanel extends JPanel implements KeyListener{
         
         
         
+        
+        
     }
     public void LeerXml(){
         try {
  
-	File fXmlFile = new File("/home/tvlenin/NetBeansProjects/PruebaPanel/src/niveles/prueba.xml");
+	File fXmlFile = new File("/home/fabricio/NetBeansProjects/Crazy2/ProyectoD/src/niveles/prueba.xml");
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	Document doc = dBuilder.parse(fXmlFile);
@@ -158,8 +165,14 @@ public class CustomPanel extends JPanel implements KeyListener{
     
     
     
-   
-    
+    /**
+    * metodo para dar coordenadas a las balas por las que dirigirse
+    */
+    public void bal(){
+        bull.setPosx(naves.getPosx());
+        bull.setPosy(naves.getPosy());
+        add(bull);
+}
    
     
     /**
@@ -174,10 +187,40 @@ public class CustomPanel extends JPanel implements KeyListener{
     public void keyPressed(KeyEvent e) {
       int c = e.getKeyCode();
       naves.getPosy();
+      //bull.getPosy();
      
         //repaint();
         
 //la variable "c" guarda el numero de tecla presionada y llama a los metodos que mueven la nave o la pantalla
+        
+        if (c == KeyEvent.VK_D){
+            bal();
+            bull.adelante();
+                    
+            bull.start();
+        }
+        
+        if (c == KeyEvent.VK_A){
+            bal();
+            bull.atras();
+                    
+            bull.start();
+        }
+        
+        if (c == KeyEvent.VK_W){
+            bal();
+            bull.arriba();
+                    
+            bull.start();
+        }
+        
+        if (c == KeyEvent.VK_S){
+            bal();
+            bull.abajo();
+                    
+            bull.start();
+        }
+        
         if (c == KeyEvent.VK_UP) {
             if (naves.getPosy() < 30)
                 System.out.println("Bum");
@@ -205,8 +248,8 @@ public class CustomPanel extends JPanel implements KeyListener{
         if (c == KeyEvent.VK_RIGHT) {
            Iterator<enemigo> ator = enemigos.iterator();
            while(ator.hasNext()){
-           enemigo ene = ator.next();
-           ene.atras();
+               enemigo ene = ator.next();
+               ene.atras();
         }
            FondoAtras();
            repaint();
@@ -221,6 +264,8 @@ public class CustomPanel extends JPanel implements KeyListener{
         }
            FondoAdelante();
            repaint();
+           
+        
                 
     }
     }
