@@ -27,7 +27,8 @@ public class nave extends JLabel implements Runnable{
 
 
     /**
-     * metodo constructor de la clase nave
+     * Metodo constructor de la clase nave
+     * @author tvlenin
      */
     public nave(){
         //setOpaque(false);
@@ -40,7 +41,8 @@ public class nave extends JLabel implements Runnable{
     
     
     /**
-     * metodo para obtener la posicion en x
+     * Metodo para obtener la posicion en x
+     * @author tvlenin
      */
     public int getPosy(){
         return this.posy;
@@ -53,7 +55,8 @@ public class nave extends JLabel implements Runnable{
     
     /**
      * 
-     * metodo para mover la nave hacia arriba
+     * Metodo para mover la nave hacia arriba
+     * @author tvlenin
      */
     
     public void arriba(){
@@ -61,7 +64,8 @@ public class nave extends JLabel implements Runnable{
         setBounds(this.posx,this.posy , this.icon.getIconWidth(), this.icon.getIconHeight());
         }
     /**
-     *metodo para mover la nave hacia abajo 
+     * Metodo para mover la nave hacia abajo 
+     * @author tvlenin
      */
     
     public void abajo(){
@@ -78,6 +82,7 @@ public class nave extends JLabel implements Runnable{
     
     /**
      * Metodo para controlar los hilos, inicia el hilo
+     * @author tvlenin
      */
     
     public void start(){
@@ -87,7 +92,8 @@ public class nave extends JLabel implements Runnable{
         }
     }
     /**
-    *metodo para detener el hilo
+    * Metodo para detener el hilo
+    * @author tvlenin
     */
     public void stop(){
         if(hilo!=null){
@@ -98,7 +104,8 @@ public class nave extends JLabel implements Runnable{
    
     /**
      * 
-     * metodo donde se encuentran las instrucciones para repetir en el hilo
+     * Metodo donde se encuentran las instrucciones para repetir en el hilo
+     * @author tvlenin
      */
     @Override
     public void run() {

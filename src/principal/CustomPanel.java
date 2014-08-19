@@ -10,7 +10,6 @@ import java.util.Iterator;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-//
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -25,6 +24,7 @@ import java.io.File;
  * 
  * 
  * Clase para crear el fondo del juego y agregar los componentes
+ * @author tvlenin
  */
 public class CustomPanel extends JPanel implements KeyListener{
     Thread hilos ;
@@ -55,7 +55,8 @@ public class CustomPanel extends JPanel implements KeyListener{
        
     
     /**
-     * metodo constructor agrega el keyListener, lo vuelve visible, y le agrega un tipo de layout
+     * Metodo constructor agrega el keyListener, lo vuelve visible, y le agrega un tipo de layout
+     * @author tvlenin
      */
     public CustomPanel(){
         //addMouseListener(this);
@@ -75,6 +76,11 @@ public class CustomPanel extends JPanel implements KeyListener{
         
         
     }
+    
+    /**
+     * Metodo para la lectura de datos desde archivos XML
+     * @author tvlenin
+     */
     public void LeerXml(){
         try {
  
@@ -137,7 +143,9 @@ public class CustomPanel extends JPanel implements KeyListener{
       
 
     /**
-     * metodo de pintar del JPanel
+     * Metodo de pintar del JPanel
+     * @param g El parametro g es utilizado para pintar
+     * @author tvlenin
      */
     @Override
     public void paint(Graphics g){
@@ -149,14 +157,17 @@ public class CustomPanel extends JPanel implements KeyListener{
     }
     
     /**
-     * metodo para mover el fondo hacia atras
+     * Metodo para mover el fondo hacia atras
+     * @author tvlenin
+     * 
      */
     public void FondoAtras(){
         this.posx -= 2;
     
     }
     /**
-    * metodo para mover el fondo hacia Adelante
+    * Metodo para mover el fondo hacia Adelante
+    * @author tvlenin
     */
     public void FondoAdelante(){
         this.posx += 2;
@@ -166,7 +177,8 @@ public class CustomPanel extends JPanel implements KeyListener{
     
     
     /**
-    * metodo para dar coordenadas a las balas por las que dirigirse
+    * Metodo para dar coordenadas a las balas por las que dirigirse
+    * @author fabricio
     */
     public void bal(){
         bull.setPosx(naves.getPosx());
@@ -177,21 +189,23 @@ public class CustomPanel extends JPanel implements KeyListener{
     
     /**
      * Metodos abstractos de la interface KeyListener
+     * @author tvlenin
      */
     @Override
     public void keyTyped(KeyEvent e) {
      
     }
 
+    
     @Override
     public void keyPressed(KeyEvent e) {
       int c = e.getKeyCode();
       naves.getPosy();
-      //bull.getPosy();
+      
      
         //repaint();
         
-//la variable "c" guarda el numero de tecla presionada y llama a los metodos que mueven la nave o la pantalla
+        //la variable "c" guarda el numero de tecla presionada y llama a los metodos que mueven la nave o la pantalla
         
         if (c == KeyEvent.VK_D){
             bal();

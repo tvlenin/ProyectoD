@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
- *
+ *Clase para crear balas en la ventana
  * @author fabricio
  */
 public class balas extends JLabel implements Runnable{
@@ -22,7 +22,10 @@ public class balas extends JLabel implements Runnable{
     private int cont = 0;
     
     /**
-     * metodo constructor de la clase nave
+     * Metodo constructor de la clase balas
+     * @author fabricio
+     * @param x La posicion en el eje "x" de la bala
+     * @param y La posicion en el eje "y" de la bala
      */
     public balas(int x, int y){
         this.posx = x;
@@ -33,22 +36,49 @@ public class balas extends JLabel implements Runnable{
         setFocusable(true);
         }
     
+    
+    /**
+     * Metodo que retorna un entero con la posicion del enemigo en el eje "y" de la bala
+     * @author faricio
+     * @return Retorna la posicion en el eje "y" de la bala
+     */
     public int getPosy(){
         return this.posy;
     }
+    
+    /**
+     * Metodo que retorna un entero con la posicion del enemigo en el eje "x"
+     * @author faricio
+     * @return Retorna la posicion en el eje "x" de la bala
+     */
     public int getPosx(){
         return this.posx;
     }
     
+    
+    /**
+     * Metodo para establecer la posicion en el eje "x" de la bala
+     * @param y La posicion en el eje "y" de la bala
+     * @author faricio
+     */
     public void setPosy(int y){
         this.posy = y + 13;
     }
+    
+    /**
+     * Metodo para establecer la posicion en el eje "x" de la bala
+     * @param x La posicion en el eje "x" de la bala
+     * @author faricio
+     */
     public void setPosx(int x){
         this.posx = x + 22;
     }
     
     
-    
+    /**
+     * Metodo para dirigir el movimiento de la bala hacia atras de la nave
+     * @author faricio
+     */
     public void atras(){
         this.posx -= 5;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
@@ -56,20 +86,30 @@ public class balas extends JLabel implements Runnable{
         
     }
     
-    
+    /**
+     * Metodo para dirigir el movimiento de la bala hacia adelante de la nave
+     * @author faricio
+     */
     public void adelante(){
         this.posx += 5;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
         this.mov = 1;
     }
     
-    
+    /**
+     * Metodo para dirigir el movimiento de la bala hacia arriba de la nave
+     * @author faricio
+     */
     public void arriba(){
         this.posy -= 5;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
         this.mov = 2;
     }
     
+    /**
+     * Metodo para dirigir el movimiento de la bala hacia abajo de la nave
+     * @author faricio
+     */
     public void abajo(){
         this.posy += 5;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
@@ -79,6 +119,7 @@ public class balas extends JLabel implements Runnable{
     
     /**
      * Metodo para controlar los hilos, inicia el hilo
+     * @author faricio
      */
     
     public void start(){
@@ -88,7 +129,8 @@ public class balas extends JLabel implements Runnable{
         }
     }
     /**
-    *metodo para detener el hilo
+    * Metodo para detener el hilo
+    * @author faricio
     */
     public void stop(){
         if(hilo!=null){
@@ -98,7 +140,10 @@ public class balas extends JLabel implements Runnable{
     }
     
     
-    
+    /**
+     * Metodo para ejecutar el hilo y realizar los movimientos delas balas
+     * @author faricio
+     */
     @Override
     public void run() {
         

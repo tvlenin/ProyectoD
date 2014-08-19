@@ -24,7 +24,10 @@ public class enemigo extends JLabel implements Runnable{
     Random rnd = new Random();
     /**
      * Metodo constructor de la clase enemigo
-     * 
+     * @author tvlenin
+     * @param x La posicion en el eje "x" del enemigo
+     * @param y La posicion en el eje "y" del enemigo
+     * @param nombre El nombre del enemigo
      */
     public enemigo (int x,int y, int movi, String nombre){
         this.url = getClass().getResource("/img/"+nombre);
@@ -39,7 +42,9 @@ public class enemigo extends JLabel implements Runnable{
 }
 
     /**
-     *metodo con las diferentes maneras en las que se puede mover el enemigo 
+     * Metodo con las diferentes maneras en las que se puede mover el enemigo 
+     * @author tvlenin
+     * @param o Almacena el tipo de movimiento que realizara el enemigo
      */
     public void mover(int o){
 
@@ -115,7 +120,8 @@ public class enemigo extends JLabel implements Runnable{
         }
     }  
     /**
-     * metodo para mover los objetos de la pantalla hacia la nave
+     * Metodo para mover los objetos de la pantalla hacia la nave
+     * @author tvlenin
     */
     public void atras(){
         posx -= 5;
@@ -123,7 +129,8 @@ public class enemigo extends JLabel implements Runnable{
 
     }
     /**
-     * metodo para alejarse de la nave
+     * Metodo para alejarse de la nave
+     * @author tvlenin
      */    
     public void adelante(){
         posx += 5;
@@ -133,12 +140,16 @@ public class enemigo extends JLabel implements Runnable{
     }
     /**
      * Metodo que retorna un entero con la posicion del enemigo en x
+     * @author tvlenin
+     * @return Retorna un entorno con la posicion en x del enemigo
      */  
     public int getposx(){
         return posx;
     }
      /**
      * Metodo que retorna un entero con la posicion del enemigo en y
+     * @author tvlenin
+     * @return Retorna un entorno con la posicion en x del enemigo
      */  
     public int getposy(){
         return posy;
@@ -158,6 +169,7 @@ public class enemigo extends JLabel implements Runnable{
     
     /** 
      * Metodo que inicia el hilo de la clase enemigo
+     * @author tvlenin
      */
     public void start(){
         if(hilo==null){
@@ -166,7 +178,8 @@ public class enemigo extends JLabel implements Runnable{
         }
     }
     /**
-     *metodo para detener el hilo 
+     * Metodo para detener el hilo
+     * @author tvlenin
      */
     public void stop(){
         if(hilo!=null){
@@ -175,7 +188,8 @@ public class enemigo extends JLabel implements Runnable{
         }
     }
     /**
-     *metodo donde se encuentran las instrucciones para repetir en el hilo
+     * Metodo donde se encuentran las instrucciones para repetir en el hilo
+     * @author tvlenin
      */
     @Override
     public void run() {
