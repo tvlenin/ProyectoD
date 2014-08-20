@@ -19,6 +19,7 @@ public class nave extends JLabel implements Runnable{
     
     private int posx = 100;//posicion inicial en x
     private int posy = 200;//posicion inicial en y
+    private int vidas = 3;
     //carga la imagen de la nave
     private URL url = getClass().getResource("/img/nave.jpg");
     ImageIcon icon = new ImageIcon(url);
@@ -31,6 +32,7 @@ public class nave extends JLabel implements Runnable{
      */
     public nave(){
         //setOpaque(false);
+        this.vidas = 3;
         setVisible(true);
         setIcon(icon);
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
@@ -47,6 +49,12 @@ public class nave extends JLabel implements Runnable{
     }
     public int getPosx(){
         return this.posx;
+    }
+    public void muerte(){
+        this.vidas -= 1;
+    }
+    public int getVidas(){
+        return this.vidas;
     }
     
   

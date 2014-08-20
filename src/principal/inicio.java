@@ -7,6 +7,7 @@
 package principal;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -20,7 +21,17 @@ public class inicio extends javax.swing.JFrame {
     public inicio() {
         initComponents();
     }
+    JFrame ventana = new JFrame();
 
+    /**
+     *
+     */
+    
+   
+   
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,10 +41,13 @@ public class inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        textField1 = new java.awt.TextField();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudad.jpg"))); // NOI18N
+        jLabel1.setText("hola");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,30 +64,39 @@ public class inicio extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 90, -1));
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jButton2.setText("Mejores Puntuaciones");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ciudad.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
+        textField1.setText("Digite el numero de nivel");
+        textField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 200, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFrame ventana = new JFrame();
-      CustomPanel panel = new CustomPanel();
-      
-      ventana.setVisible(true);
+        CustomPanel.nivel = textField1.getText();
+        CustomPanel panel = new CustomPanel();
+        
+        System.out.println(CustomPanel.nivel);
+        
+        
+        ventana.setVisible(CustomPanel.visible);
       //panel.setOpaque(false);
       ventana.setSize(800, 500);
       ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       ventana.getContentPane().add(panel);
       this.setVisible(false);
+      
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,8 +135,8 @@ public class inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }
