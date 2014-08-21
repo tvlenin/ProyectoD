@@ -203,17 +203,20 @@ public class CustomPanel extends JPanel implements SerialPortEventListener, Runn
                 System.out.println("Error en y");
     }
     if (inputLine.contains("3")){
-        
-        Iterator<enemigo> ator = enemigos.iterator();
+        if (posx >= 0){
+            System.out.println("No");
+        }else{
+            Iterator<enemigo> ator = enemigos.iterator();
             while(ator.hasNext()){
             enemigo ene = ator.next();
             ene.adelante();
         }
            FondoAdelante();
-           repaint();
+        }
+        repaint();
     }if (inputLine.contains("4")){
         
-        ;
+        
         if (naves.getPosy() < 415)
             naves.abajo();
         else
