@@ -19,6 +19,7 @@ public class nave extends JLabel implements Runnable{
     
     private int posx = 100;//posicion inicial en x
     private int posy = 200;//posicion inicial en y
+    private int vidas = 3;
     //carga la imagen de la nave
     private URL url = getClass().getResource("/img/nave.jpg");
     ImageIcon icon = new ImageIcon(url);
@@ -32,6 +33,7 @@ public class nave extends JLabel implements Runnable{
      */
     public nave(){
         //setOpaque(false);
+        this.vidas = 3;
         setVisible(true);
         setIcon(icon);
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
@@ -41,14 +43,38 @@ public class nave extends JLabel implements Runnable{
     
     
     /**
-     * Metodo para obtener la posicion en x
+     * Metodo para obtener la posicion en y
      * @author tvlenin
+     * @return retorna la posicion en el eje y de la nave
      */
     public int getPosy(){
         return this.posy;
     }
+    
+    /**
+     * Metodo para obtener la posicion en x
+     * @author tvlenin
+     * @return retorna la posicion en el eje y de la nave
+     */
     public int getPosx(){
         return this.posx;
+    }
+    
+    /**
+     * Metodo para establecer que el jugador perdio una vida
+     * @author tvlenin
+     */
+    public void muerte(){
+        this.vidas -= 1;
+    }
+    
+    /**
+     * Metodo para mostrar el numero de vidas que posee el jugador
+     * @author tvlenin
+     * @return retorna la cantidad de vidas del jugador
+     */
+    public int getVidas(){
+        return this.vidas;
     }
     
   
@@ -112,7 +138,7 @@ public class nave extends JLabel implements Runnable{
         
         try {
             // espera 300 milisegundos despues de subir la nave
-            Thread.sleep(600);
+            Thread.sleep(1000);
                        
         } catch (InterruptedException ex) { }
             

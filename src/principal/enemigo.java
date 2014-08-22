@@ -83,14 +83,14 @@ public class enemigo extends JLabel implements Runnable{
                 //caso 2 es un movimiento de arriba-abajo con una pequena inclinacion hacia x
             case 2 :
                 if (posy >= 40  && mov == 0){
-                    posx += 1;
-                    posy -= 10;
+                    
+                    posy -= 5;
                     setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
 
                 }else if (posy < 440 ){
                     mov = 1;
-                    posx -= 1;
-                    posy += 10;
+                    
+                    posy += 5;
                     setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
                     if (posy >= 440)
                         mov =0;
@@ -98,7 +98,7 @@ public class enemigo extends JLabel implements Runnable{
                 break;
             case 3 :
                 if (posy < 350){
-                    posy = 430;
+                    posy = 400;
                 }else if (posy >350 ){
 
                     if (cont < 200){
@@ -124,16 +124,25 @@ public class enemigo extends JLabel implements Runnable{
      * @author tvlenin
     */
     public void atras(){
-        posx -= 5;
+        posx -= 15;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
 
+    }
+    
+    /**
+     * Metodo que suma puntos al jugador por destruir una nave
+     * @author tvlenin
+     */
+    public void puntos(){
+        CustomPanel.puntos += 10;
+        puntaje.punt += 10;
     }
     /**
      * Metodo para alejarse de la nave
      * @author tvlenin
      */    
     public void adelante(){
-        posx += 5;
+        posx += 15;
         setBounds(posx,posy , icon.getIconWidth(), icon.getIconHeight());
 
       
@@ -153,6 +162,22 @@ public class enemigo extends JLabel implements Runnable{
      */  
     public int getposy(){
         return posy;
+    }
+    
+    /**
+     * Metodo para establecer la posicion en el eje "x" del enemigo
+     * @author tvlenin
+     */
+    public void setPosx(){
+        this.posx = -100;
+    }
+    
+    /**
+     * Metodo para establecer la posicion en el eje "y" del enemigo
+     * @author tvlenin
+     */
+    public void setPosy(){
+        this.posy = -100;
     }
     
     

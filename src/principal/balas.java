@@ -12,7 +12,7 @@ import javax.swing.JLabel;
  */
 public class balas extends JLabel implements Runnable{
     
-    Thread hilo;// crea e hilo
+    Thread hilo;// crea el hilo
     public int mov = 0;
     private int posx;//posicion inicial en x
     private int posy;//posicion inicial en y
@@ -38,7 +38,7 @@ public class balas extends JLabel implements Runnable{
     
     
     /**
-     * Metodo que retorna un entero con la posicion del enemigo en el eje "y" de la bala
+     * Metodo que retorna un entero con la posicion del la bala en el eje "y"
      * @author faricio
      * @return Retorna la posicion en el eje "y" de la bala
      */
@@ -47,7 +47,7 @@ public class balas extends JLabel implements Runnable{
     }
     
     /**
-     * Metodo que retorna un entero con la posicion del enemigo en el eje "x"
+     * Metodo que retorna un entero con la posicion de la bala en el eje "x"
      * @author faricio
      * @return Retorna la posicion en el eje "x" de la bala
      */
@@ -57,7 +57,7 @@ public class balas extends JLabel implements Runnable{
     
     
     /**
-     * Metodo para establecer la posicion en el eje "x" de la bala
+     * Metodo para establecer la posicion en el eje "y" de la bala
      * @param y La posicion en el eje "y" de la bala
      * @author faricio
      */
@@ -141,7 +141,7 @@ public class balas extends JLabel implements Runnable{
     
     
     /**
-     * Metodo para ejecutar el hilo y realizar los movimientos delas balas
+     * Metodo para ejecutar el hilo y realizar los movimientos de las balas
      * @author faricio
      */
     @Override
@@ -149,8 +149,7 @@ public class balas extends JLabel implements Runnable{
         
             
         while (true) {
-            try{
-                // define el tiempo cada cuanto se baja una posicion 
+            try{                
                 Thread.sleep(10);
                 
             
