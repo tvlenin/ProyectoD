@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<company>
+        <mapa >
+		<jo>bosque.png</jo>
+	</mapa>
+        <ene>
+		<jo>20</jo>
+	</ene>
+        
+	<staff id="1001">
+		<firstname>210</firstname>
+		<lastname>70</lastname>
+		<nickname>2</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+	<staff id="2001">
+		<firstname>265</firstname>
+		<lastname>130</lastname>
+		<nickname>2</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+        <staff id="2002">
+                <jo>0</jo>
+		<firstname>320</firstname>
+		<lastname>200</lastname>
+		<nickname>2</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+        <staff id="2003">
+                
+		<firstname>500</firstname>
+		<lastname>100</lastname>
+		<nickname>3</nickname>
+		<salary>OVNI.png</salary>
+	</staff>
+        <staff id="2004">
+                
+		<firstname>500</firstname>
+		<lastname>200</lastname>
+		<nickname>3</nickname>
+		<salary>robot.png</salary>
+	</staff>
+        <staff id="2005">
+                
+		<firstname>500</firstname>
+		<lastname>370</lastname>
+		<nickname>3</nickname>
+		<salary>nativo.png</salary>
+	</staff>
+        <staff id="2006">
+                
+		<firstname>675</firstname>
+		<lastname>275</lastname>
+		<nickname>1</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+        <staff id="2007">
+                
+		<firstname>800</firstname>
+		<lastname>300</lastname>
+		<nickname>3</nickname>
+		<salary>nativo.png</salary>
+	</staff>
+        <staff id="2008">
+                
+		<firstname>875</firstname>
+		<lastname>100</lastname>
+		<nickname>2</nickname>
+		<salary>robot.png</salary>
+	</staff>
+        <staff id="2009">
+                
+		<firstname>900</firstname>
+		<lastname>300</lastname>
+		<nickname>1</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+        <staff id="2010">
+                
+		<firstname>1070</firstname>
+		<lastname>225</lastname>
+		<nickname>1</nickname>
+		<salary>OVNI.png</salary>
+	</staff>
+        <staff id="2011">
+                
+		<firstname>1200</firstname>
+		<lastname>370</lastname>
+		<nickname>3</nickname>
+		<salary>nativo.png</salary>
+	</staff>
+        <staff id="2012">
+                
+		<firstname>1350</firstname>
+		<lastname>320</lastname>
+		<nickname>1</nickname>
+		<salary>robot.png</salary>
+	</staff>
+        <staff id="2013">
+                
+		<firstname>1410</firstname>
+		<lastname>200</lastname>
+		<nickname>2</nickname>
+		<salary>robot.png</salary>
+	</staff>
+        <staff id="2014">
+                
+		<firstname>1600</firstname>
+		<lastname>370</lastname>
+		<nickname>1</nickname>
+		<salary>nativo.png</salary>
+	</staff>
+        <staff id="2015">
+                
+		<firstname>1523</firstname>
+		<lastname>100</lastname>
+		<nickname>2</nickname>
+		<salary>OVNI.png</salary>
+	</staff>
+        <staff id="2016">
+                
+		<firstname>1900</firstname>
+		<lastname>400</lastname>
+		<nickname>2</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+        <staff id="2017">
+                
+		<firstname>1840</firstname>
+		<lastname>300</lastname>
+		<nickname>2</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+        <staff id="2018">
+                
+		<firstname>1785</firstname>
+		<lastname>200</lastname>
+		<nickname>2</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+        <staff id="2019">
+                
+		<firstname>1700</firstname>
+		<lastname>10</lastname>
+		<nickname>2</nickname>
+		<salary>ninja.png</salary>
+	</staff>
+        
+</company>

@@ -21,7 +21,7 @@ public class nave extends JLabel implements Runnable{
     private int posy = 200;//posicion inicial en y
     private int vidas = 3;
     //carga la imagen de la nave
-    private URL url = getClass().getResource("/img/nave.jpg");
+    private URL url = getClass().getResource("/img/nave.png");
     ImageIcon icon = new ImageIcon(url);
     
 
