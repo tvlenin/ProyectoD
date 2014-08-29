@@ -1,0 +1,193 @@
+Crazy Defender
+Para jugar “Crazy Defender” se debe abrir el archivo para ejecutar el juego, luego en la pantalla principal se deberá introducir el nombre del nivel que se desea jugar y luego dar click sobre el botón “Jugar”, una vez en la pantalla de juego, el movimiento será con el uso de un controlador que permitirá disparar con los botones del lado derecho de este, y moverse con los botones del lado izquierdo del mismo. Una vez acabado el nivel se deberá cerrar el juego y volver a iniciarlo para jugar un nuevo nivel.
+Requisitos de hardware: Será necesario el uso del control diseñado con un Arduino el cual consta de ocho botones y irá conectado a un puerto USB de la computadora.
+Requisitos de software: Al ser Java multiplataforma el juego puede ejecutar en casi todos los sistemas operativos, solo se debe tener instalado java en la computadora.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bibliotecas utilizadas
+AWT: AWT es el acrónimo del X Window Toolkit para Java, donde X puede ser cualquier cosa: Abstract, Alternative, Awkward, Another. Esta biblioteca es un kit de herramientas de gráficos, interfaz de usuario, y sistema de ventanas independiente de la plataforma original de Java para el desarrollo de Interfaces de Usuario Gráficas.
+-Graphics, que permite dibujar elipses, cuadrados, líneas, mostrar texto y también tiene muchos otros métodos de dibujo.
+-Image, que proporciona clases para el manejo y modificación de imágenes.
+-KeyEvent, que se encarga de los eventos relacionados con el teclado, ya sea al presionar, soltar o mantener alguna tecla.
+-KeyListener, que se encarga de analizar el comportamiento de una tecla cuando es presionada por el usuario y para reconocer cual tecla es la presionada.
+Swing: Swing es una biblioteca gráfica para Java que incluye widgets para interfaz gráfica de usuario tales como cajas de texto, botones, desplegables y tablas.
+-ImageIcon, se encarga de pintar iconos a partir de imágenes provistas por un URL.
+-JPanel, es un contenedor genérico en el cual se pueden colocar otros elementos.
+-JLabel, es un área de visualización de una cadena corta de texto o una imagen, o ambos.
+Net: Esta biblioteca permite realizar conexiones y transacciones a través de la red. Utilizando el paquete java.net podemos comunicar dos o más computadoras que estén en distintas partes del mundo.
+-URL, representa un Localizador Uniforme de Recursos, un puntero a un "recurso" en la World Wide Web.
+Util: Es un conjunto bastante grande tanto de interfaces como de clases de diversos tipos, que en conjunto podrían llamarse “utilidades”.
+-ArrayList, implementación de matrices de la interfaz de lista con todas las operaciones disponibles de la lista, y permite todos los elementos, incluyendo nulo.
+-Enumeration, genera conjuntos de números, un número a la vez.
+-Iterator, nos permite iterar sobre una colección de elementos.
+-logging.Level, sirve para realizar registros con diversos niveles informativos.
+-logging.Logger, facilita tener un registro de los procesos que ocurren en un programa.
+io: La biblioteca io permite analizar entradas y/o salidas en un programa de Java.
+-CommPortIdentifier, se utiliza para identificar el puerto COM en el que se está trabajando.
+-SerialPort, se utiliza para identificar y realizar tareas con el puerto serial.
+-SerialPortEvent, gestiona los eventos relacionados con el puerto serial.
+-SerialPortEventListener, analiza los eventos realizados por el puerto serial.
+-BufferedReader, lee texto a partir de un flujo de caracteres de entrada-, regulando los caracteres a fin de proporcionar una lectura eficiente de caracteres, matrices y líneas.
+-File, proporciona métodos estáticos para crear, copiar, eliminar, mover y abrir archivos y contribuye a la creación de objetos FileStream.
+-InputStreamReader, es un puente de flujos de bytes a streams de caracteres: Se lee bytes y los decodifica en caracteres utilizando un juego de caracteres especificado.
+-OutputStream, se encarga de lo relacionado con el flujo de salida de bytes.
+Xml: Es la encargada de realizar los procesos relacionados con la lectura y escritura de archivos XML.
+w3c: Biblioteca asociada con los procesos relacionados con los archivos XML.
+
+
+
+
+
+
+
+
+
+Métodos Implementados
+Clase Principal
+-main(args): Método principal del programa, desde el cual se invoca a la ventana principal.
+Clase inicio
+-inicio(): Método constructor de la clase.
+-initComponents(): Método desde el cual se colocan los elementos que se encuentran en la pantalla principal.
+-jButton1ActionPerformed(evt): Método que invoca una nueva ventana donde se mostraran los elementos del juego.
+-textField1ActionPerformed(evt): Método para realizar tareas con el campo de texto.
+-main(args): Método para inicializar los componentes de la pantalla.
+Clase CustomPanel
+-CustomPanel(): Método constructor agrega el keyListener, lo vuelve visible, y le agrega un tipo de layout.
+-initialize(): Método para inicializar las operaciones con el Arduino.
+-close(): Método para evitar que los puertos se bloqueen cuando se deje de utilizar el puerto.
+-serialEvent(oEvent): Método para analizar eventos en el puerto serial, lee datos y los muestra.
+-LeerXml(): Método utilizado para la lectura de archivos XML.
+-paint(g): Método de pintar del Jpanel
+-FondoAtras(): Método para mover el fondo hacia atrás
+-FondoAdelante(): Método para mover el fondo hacia adelante
+-bal(): Método para dar coordenadas a las balas por las que dirigirse
+-keyTyped(e), keyPressed(e), keyReleased(e): Métodos abstractos de la interface KeyListener
+-start(): Método para inicializar el hilo
+-stop(): Método para detener el hilo
+-run(): Método para ejecutar el hilo y realizar los dibujos en la pantalla
+
+Clase balas
+-balas(x,y): Método constructor de la clase balas
+-getPosy(): Método que retorna un entero con la posición de la bala en el eje "y"
+-getPosx(): Método que retorna un entero con la posición de la bala en el eje "x"
+-setPosy(y): Método para establecer la posición en el eje "y" de la bala
+-setPosx(x): Método para establecer la posición en el eje "x" de la bala
+-atras(): Método para dirigir el movimiento de la bala hacia atras de la nave
+-adelante(): Método para dirigir el movimiento de la bala hacia adelante de la nave
+-arriba(): Método para dirigir el movimiento de la bala hacia arriba de la nave
+-abajo(): Método para dirigir el movimiento de la bala hacia abajo de la nave
+-start(): Método para inicializar los hilos
+-stop(): Método para detener el hilo
+-run(): Método para ejecutar el hilo y realizar los movimientos de las balas
+Clase enemigo
+-enemigo(x, y, movi, nombre): Método constructor de la clase enemigo
+-mover(o): Método con las diferentes maneras en las que se puede mover el enemigo
+-atras(): Método para mover los objetos de la pantalla hacia la nave
+-adelante(): Método para alejarse de la nave
+-puntos(): Método que suma puntos al jugador por destruir una nave
+-getPosy(): Método que retorna un entero con la posición del enemigo en el eje "y".
+-getPosx(): Método que retorna un entero con la posición del enemigo en el eje "x".
+-setPosx(): Método para establecer la posición en el eje "x" del enemigo
+-setPosy(): Método para establecer la posición en el eje "y" del enemigo
+-start(): Método para inicializar el hilo de la clase enemigo
+-stop(): Método para detener el hilo
+-run(): Método donde se encuentran las instrucciones para repetir en el hilo
+Clase nave
+-nave(): Método constructor de la clase nave
+-getPosy(): Método para obtener la posición en y
+-getPosx(): Método para obtener la posición en x
+-muerte(): Método para establecer que el jugador perdió una vida
+-getVidas(): Método para mostrar el número de vidas que posee el jugador
+-arriba(): Método para mover la nave hacia arriba
+-abajo(): Método para mover la nave hacia abajo
+-start(): Método para inicializar el hilo
+-stop(): Método para detener el hilo
+-run(): Método donde se encuentran las instrucciones para repetir en el hilo
+Clase puntaje
+-puntaje(): Método constructor, crea los elementos a mostrar cuando se acaba el juego
+-paint(g): Método donde se encuentran las instrucciones para pintar en la pantalla
+
+
+
+
+
+
+
+Algoritmos desarrollados
+
+El algoritmo utilizado para detectar el impacto de las balas con las naves enemiga se basa en que una vez disparado un proyectil se verifique las coordenadas en “X” y en “Y” de las balas y los enemigos, en el caso de evaluar a los enemigos, el rango de búsqueda se aumenta para que no sea un solo punto en el plano, sino que se busque en un cuadro el cual es las medidas de las imágenes utilizadas para cada caso.
+Existen tres movimientos diferentes los cuales toman en cuenta la posición actual de la nave enemiga para cambiarla, si esta va a salir del campo de juego el programa la vuelve a ubicar en la posición debida para que no se pierda o se salga del mapa, esto se logra evaluando que la posición que se vaya a asignar no sea mayor que la altura del mapa o menor que cero. Igualmente la nave en cada movimiento que hace evalúa su posición con respecto al mapa para ver si está permitido moverse más para abajo o para arriba.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Resultados
+El juego desarrollado (Crazy Defender), cuenta con una pantalla inicial en la cual se podrá ingresar el nombre del nivel, al ingresar se podrá controlar una nave espacial que puede dispara hacia arriba, abajo izquierda y derecha, si la nave vuela una vez se deje de presionar el botón de arriba esta caerá lentamente. El mapa tiene limitaciones de de espacio, sus dimensiones con 800x500 pero el eje x se mueve dependiendo hacia adonde se mueva la nave. Durante el nivel van apareciendo enemigos diferentes los cuales podrán ser destruidos por un proyectil disparado desde la nave o por impactar la nave contra estos, el jugador cuenta con tres vidas, una vez las haya utilizado todas se acaba el juego y su puntaje es mostrado en una pantalla final, otra manera de acabar el juego es haber matado a cada uno de los enemigos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Recomendaciones
+Al momento de jugar con el controlador, se debe presionar repetidas un botón para poder realizar un movimiento, ya que si se mantiene presionado solo realizara un movimiento y no realizara otro hasta que se presione otra tecla o la misma nuevamente. Están presentes problemas con el movimiento de la nave, sin embargo no es imposible movilizarse por el nivel.
+Cuando se está jugando, el rendimiento del computador disminuye por lo que el juego se observa en saltos, para poder visualizarlo con fluidez, se debe presionar alguna de las teclas del computador o mover en alguna dirección el ratón del mismo. No se realiza un correcto uso de los recursos.
+En el momento de jugar, cuando se presiona uno de los botones para disparar, se debe esperar a que la bala impacte a algún enemigo o salga del campo de visión para poder disparar de nuevo, ya que si se presiona el botón para realizar otro disparo, el primero desaparece y aparece una nueva bala. No es posible disparar dos o más balas y que se muestren al mismo tiempo en la pantalla, pero si una a la vez.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bibliografía
+Página oficial de Java: http://docs.oracle.com/javase/tutorial/java/
+Página oficial de Arduino: http://arduino.cc/
