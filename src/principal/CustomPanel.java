@@ -61,7 +61,6 @@ public class CustomPanel extends JPanel implements SerialPortEventListener, Runn
    "COM1", // Windows
     };
     
-    //private int cantEnem = 2;
     
     public static String nivel;
     private URL url = getClass().getResource("/img/mario.jpg");
@@ -89,11 +88,7 @@ public class CustomPanel extends JPanel implements SerialPortEventListener, Runn
      * @author tvlenin
      */
     public CustomPanel(){
-        //addMouseListener(this);
         
-        
-       
-        //addKeyListener(this);
         setFocusable(true);
         
         LeerXml();
@@ -293,34 +288,7 @@ public class CustomPanel extends JPanel implements SerialPortEventListener, Runn
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
     
     /**
      * Metodo utilizado para la lectura de archivos XML
@@ -474,7 +442,7 @@ public class CustomPanel extends JPanel implements SerialPortEventListener, Runn
       naves.getPosy();
    
         
-        //repaint();
+        
         
         //la variable "c" guarda el numero de tecla presionada y llama a los metodos que mueven la nave o la pantalla
         
